@@ -6,6 +6,7 @@
 
 ## Assignment 4
   - Prototyping tool: [AdobeXD](https://www.adobe.com/products/xd.html)
+  - `iOS12-XD/UI Elements/UIElements+DesignTemplates+Guides-iPad.xd` contains the xd file for all ui elements on iPads
   > Note: AdobeXD does not allow for collaborations. After your done editing the XD file, make sure to push it to github so others can work on it.
   
 ## Assignment 5
