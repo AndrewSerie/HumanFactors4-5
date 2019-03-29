@@ -5,8 +5,8 @@
   > Prototyping and frameworks are open for debate (obviously)
 
 ## Project Task Boards
-  - [Assingmnet 3 Project KanBan](https://github.com/AndrewSerie/HumanFactors4-5/projects/1)
-  - [Assignment 4 Project KanBan](https://github.com/AndrewSerie/HumanFactors4-5/projects/2)
+  - [Assingmnet 4 Project KanBan](https://github.com/AndrewSerie/HumanFactors4-5/projects/1)
+  - [Assignment 5 Project KanBan](https://github.com/AndrewSerie/HumanFactors4-5/projects/2)
   
 ## Gamradt's Persona Notes
   - What the app should be similar to: Cottonwood POS APP on iPad
