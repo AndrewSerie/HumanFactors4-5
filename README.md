@@ -16,6 +16,13 @@
     - Second interation would be to do a kiosk in the store where customers can serve themselves
     - Third iteration would be to put it on a customers phone and can place orders from there
   - Focus on bagels first and them do coffee
+  - Questions from Monday (4/1)
+    - Q: Should we have a lot of prompts for each order addition? A: No, in my opinion I would have the final list be the double check. (the order confirmation)
+    - Q: Specific color or design. A: Not part of design for functionality. Wait for final preliminary discussion
+    - Q: Only bagels, not coffee? A: Just bagels, can put like "Coffee coming Summer 2019", can put item in for plain black coffee. Do get carried away.
+    - Q: Just of a POS? A: For now its a POS but later its going to be converted into a kiosk system
+    - Q: Tip? A: Yes, the purchasing should follow the tip (right before signature). Like Cottonwood.  Flip it around, add tip, swipe card, sign,  option to have recipt printed or emailed
+    - Q: Payment processing? You can add in an api for payment functionality (like square)
 
 ## Assignment 4
   - Prototyping tool: [AdobeXD](https://www.adobe.com/products/xd.html)
