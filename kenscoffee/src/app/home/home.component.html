@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>LOGO</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="discardOrder()">
+        Discard Order
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="grid">
+    <div id="cart">
+      <div id="header">
+        <span>Description</span>
+        <span>Quantity</span>
+        <span>Unit Price</span>
+        <span>Total</span>
+      </div>
+
+    </div>
+    <div id="order-cost">
+      <app-layout-order-cost-tile></app-layout-order-cost-tile>
+    </div>
+
+    <div id="item-tiles">
+      <app-layout-tile></app-layout-tile>
+      <app-layout-tile></app-layout-tile>
+      <app-layout-tile></app-layout-tile>
+    </div>
+
+    <div id="menu">
+      <span appLayoutTextButton>Bagels</span>
+      <span appLayoutTextButton>Coffee</span>
+    </div>
+  </div>
+</ion-content>
