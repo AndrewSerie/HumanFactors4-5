@@ -1,0 +1,47 @@
+#grid {
+	display: grid;
+	height: 100%;
+	grid-template-rows: repeat(4, 2fr) 3fr 3fr;
+	color: #ffffff;
+	background-color: #8b8b8b;
+}
+
+.item {
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	font-size: 17px;
+	border-bottom: 1px solid #9a9a9a;
+
+	.details {
+		width: 100%;
+		.title {
+			float: left;
+		}
+		.amount {
+			float: right;
+		}
+		ion-icon {
+			font-size: 24px;
+		}
+	}
+}
+
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.button.green {
+	background-color: #5cb85c;
+}
+.button.green:active {
+	background-color: #499349;
+}
+.button.blue {
+	background-color: #428bca;
+}
+.button.blue:active {
+	background-color: #346fa1;
+}

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <img alt="logo" height="35" src="assets/icon/favicon.png">
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="discardOrder()">
+        Discard Order
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="grid">
+    <div id="cart">
+      <div id="header">
+        <span>Description</span>
+        <span>Quantity</span>
+        <span>Unit Price</span>
+        <span>Total</span>
+      </div>
+
+      <div *ngFor="let item of cart?.items">{{item.name}}</div>
+
+    </div>
+    <div id="order-cost">
+      <app-layout-order-cost-tile></app-layout-order-cost-tile>
+    </div>
+
+    <div id="item-tiles">
+      <router-outlet></router-outlet>
+    </div>
+
+    <div id="menu">
+      <span appLayoutTextButton routerLink="/home/bagels">Bagels</span>
+      <span appLayoutTextButton routerLink="/home/coffee">Coffee</span>
+    </div>
+  </div>
+</ion-content>

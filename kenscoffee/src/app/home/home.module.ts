@@ -1,23 +1,31 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { HomeComponent } from './home.component';
+import { Routes, RouterModule } from '@angular/router';
+import { LayoutModule } from '../layout/layout.module';
+import { BagelsComponent } from './bagels/bagels.component';
+import { CoffeeComponent } from './coffee/coffee.component';
 
-import { HomePage } from './home.page';
+const routes: Routes = [
+	{
+		path: '',
+		component: HomeComponent,
+		children: [
+			{ path: 'bagels', component: BagelsComponent },
+			{ path: 'coffee', component: CoffeeComponent },
+			{ path: '**', redirectTo: 'bagels' }
+		]
+	}
+];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: HomePage
-      }
-    ])
-  ],
-  declarations: [HomePage]
+	imports: [
+		IonicModule,
+		CommonModule,
+		RouterModule.forChild(routes),
+		LayoutModule
+	],
+	declarations: [HomeComponent, BagelsComponent, CoffeeComponent]
 })
-export class HomePageModule {}
+export class HomeModule {}

@@ -1,0 +1,31 @@
+<div id="grid">
+  <div class="item">
+    <div class="details">
+      <span class="title">Subtotal</span>
+      <span class="amount">{{subtotal | currency}}</span>
+    </div>
+  </div>
+  <div class="item">
+    <div class="details">
+      <span class="title">Discount</span>
+      <span class="amount">
+        {{discount | currency}}
+        <!-- <ion-icon name="add-circle-outline"></ion-icon> -->
+      </span>
+    </div>
+  </div>
+  <div class="item">
+    <div class="details">
+      <span class="title">Tax</span>
+      <span class="amount">{{tax | currency}}</span>
+    </div>
+  </div>
+  <div class="item">
+    <div class="details">
+      <span class="title">Total</span>
+      <span class="amount">{{subtotal + discount + tax | currency}}</span>
+    </div>
+  </div>
+  <div class="button green">Cash</div>
+  <div class="button blue">Credit</div>
+</div>
