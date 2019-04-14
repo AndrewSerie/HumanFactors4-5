@@ -1,5 +1,5 @@
-<div id="tile">
+<div id="tile" [ngClass]="{'active': active}">
   <div id="text">
-    <p>I am a tile</p>
+    <ng-content></ng-content>
   </div>
 </div>

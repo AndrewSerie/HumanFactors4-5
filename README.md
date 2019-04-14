@@ -32,3 +32,48 @@
 ## Assignment 5
   - Mobile app framework: [Ionic (Angular)](https://ionicframework.com/) - Cross-Platform mobile development in the web
   - Andrew has experience creating mobile apps in Ionic. He can help with training.
+
+## Contributing to Angular Application
+-   Feel free to work in the app. I do ask that you make a new branch and follow the PR process to prevent destructive changes in the app.
+-   I work in [VSCode](https://code.visualstudio.com/)
+
+### Useful Commands
+
+-   You can open a termial in vscode by the shortcut [CTRL + `] or Menu > View > Terminal
+-   Start the development server: `ionic serve` This will open the browser automatically.
+-   To develop with iPad view, press `F12` to open developer console in Chrome.
+-   -   There is a device icon in top left of developer console called `Toggle Device Toolbar`
+-   -   You can change the device to `iPad`
+
+-   Generate a new component: `ng generate component my-component --no-spec`
+-   -   Run as dry run first to see what the directory is going to look like and make sure it looks correct: `ng generate component my-component --no-spec -d`
+-   -   Short command: `ng g c my-component --no-spec`
+
+### Creating a branch
+
+#### In VSCode (Recommended)
+-   Open VSCode in the project directory
+-   In VSCode, click the branch icon in the lower left hand corner
+-   The command pallate opens and there is an option to create a new branch
+-   MAKE SURE THE BRANCH NAME in the bottom left says your branch name after you make it
+
+#### On Github
+-   From the [project page](https://github.com/AndrewSerie/HumanFactors4-5), click the Branch: master dropdown
+-   Type the name of your new branch
+-   Open VSCode in the project directory
+-   Change branches by clicking on the branch icon in the lower left hand corner
+-   MAKE SURE THE BRANCH NAME in the bottom left says your branch name after you make it
+
+#### Committing changes to your branch
+-   MAKE SURE THE BRANCH NAME in the bottom left says your branch name
+-   VSCode has a GIT symbol in the left toolbar. Click it
+-   Your changes are in the list. Type a message and click the checkmark to commit locally
+-   In the lower left where your branch name is, hit the sync button to sync your local changes with GitHub
+
+#### Creating a PR (Pull Request)
+-   Click the New Pull Request Button on Github Project page. Next to the Branch button
+-   Keep Base: master, Change compare: to your branch you want to make a PR for
+-   Create a meaningul title of your changes
+-   Reveiw the changed files
+-   Create the PR by clicking the green button
+-   Wait for someone to review it (Post a message on fb to have someone reveiw)

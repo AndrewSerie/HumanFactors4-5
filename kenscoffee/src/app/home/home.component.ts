@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService, Cart } from '../services/cart.service';
 
 @Component({
 	selector: 'app-home',
@@ -6,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-	constructor() {}
+	cart: Cart;
 
-	ngOnInit() {}
+	constructor(private cartService: CartService) {}
+
+	ngOnInit() {
+		this.cartService.cart$.subscribe(c => (this.cart = c));
+	}
 
 	discardOrder() {
 		console.log('Discarding order');
