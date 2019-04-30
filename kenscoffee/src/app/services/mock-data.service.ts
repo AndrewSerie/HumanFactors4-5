@@ -16,27 +16,45 @@ export class MockDataService {
 		return [
 			{
 				name: 'Plain',
-				inStock: true
+				inStock: true,
+				unitPrice: 1.15,
+				description: 'A plain but simple bagel.',
+				addons: []
 			},
 			{
 				name: 'Everything',
-				inStock: true
+				inStock: true,
+				unitPrice: 1.25,
+				description: 'A plain but simple bagel.',
+				addons: []
 			},
 			{
 				name: 'Onion',
-				inStock: true
+				inStock: true,
+				unitPrice: 1.25,
+				description: 'A plain but simple bagel.',
+				addons: []
 			},
 			{
 				name: 'Asiago Cheese',
-				inStock: true
+				inStock: true,
+				unitPrice: 1.25,
+				description: 'A plain but simple bagel.',
+				addons: []
 			},
 			{
 				name: 'Cinnamon Sugar',
-				inStock: true
+				inStock: true,
+				unitPrice: 1.25,
+				description: 'A plain but simple bagel.',
+				addons: []
 			},
 			{
 				name: 'Blueberry',
-				inStock: false
+				inStock: false,
+				unitPrice: 1.25,
+				description: 'A plain but simple bagel.',
+				addons: []
 			}
 		];
 	}

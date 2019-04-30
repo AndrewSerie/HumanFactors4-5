@@ -13,25 +13,32 @@
 
 <ion-content>
   <div id="grid">
+
+    <!-- Cart -->
     <div id="cart">
       <div id="header">
-        <span>Description</span>
+        <span id="name">Description</span>
         <span>Quantity</span>
         <span>Unit Price</span>
         <span>Total</span>
       </div>
 
-      <div *ngFor="let item of cart?.items">{{item.name}}</div>
-
+      <ion-list id="items">
+        <app-cart-item *ngFor="let item of cart?.items" [(item)]="item" (itemChange)="updateCart()"></app-cart-item>
+      </ion-list>
     </div>
+
+    <!-- Order Cost -->
     <div id="order-cost">
-      <app-layout-order-cost-tile></app-layout-order-cost-tile>
+      <app-layout-order-cost-tile (cashClicked)="navCash()" (creditClicked)="navCredit()"></app-layout-order-cost-tile>
     </div>
 
+    <!-- Item Tiles -->
     <div id="item-tiles">
       <router-outlet></router-outlet>
     </div>
 
+    <!-- SubMenu -->
     <div id="menu">
       <span appLayoutTextButton routerLink="/home/bagels">Bagels</span>
       <span appLayoutTextButton routerLink="/home/coffee">Coffee</span>
