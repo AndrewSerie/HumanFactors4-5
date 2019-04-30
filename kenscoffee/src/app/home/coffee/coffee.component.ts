@@ -21,7 +21,12 @@ export class CoffeeComponent implements OnInit {
 		if (!item.inStock) return;
 
 		this.cart.addItem({
-			name: `Coffee - ${item.name}`
+			name: `Coffee - ${item.name}`,
+			unitPrice: item.unitPrice,
+			description: item.description,
+			quantity: 1,
+			notes: '',
+			addons: []
 		});
 	}
 }

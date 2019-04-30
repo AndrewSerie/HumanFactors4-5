@@ -21,7 +21,12 @@ export class BagelsComponent implements OnInit {
 		if (!item.inStock) return;
 
 		this.cart.addItem({
-			name: `Bagel - ${item.name}`
+			name: `Bagel - ${item.name}`,
+			unitPrice: item.unitPrice,
+			quantity: 1,
+			description: item.description,
+			addons: [],
+			notes: ''
 		});
 	}
 }

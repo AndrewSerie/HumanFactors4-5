@@ -2,30 +2,31 @@
   <div class="item">
     <div class="details">
       <span class="title">Subtotal</span>
-      <span class="amount">{{subtotal | currency}}</span>
+      <span class="amount">{{ cart.subtotal | currency}}</span>
     </div>
   </div>
   <div class="item">
     <div class="details">
       <span class="title">Discount</span>
       <span class="amount">
-        {{discount | currency}}
-        <!-- <ion-icon name="add-circle-outline"></ion-icon> -->
+        <ion-icon name="add-circle-outline" (click)="presentDiscountPopover($event)"></ion-icon>
+        <span>- {{ cart.discount | currency}}</span>
       </span>
     </div>
   </div>
   <div class="item">
     <div class="details">
       <span class="title">Tax</span>
-      <span class="amount">{{tax | currency}}</span>
+      <span class="amount">{{ cart.tax | currency}}</span>
     </div>
   </div>
   <div class="item">
     <div class="details">
       <span class="title">Total</span>
-      <span class="amount">{{subtotal + discount + tax | currency}}</span>
+      <span class="amount">{{ cart.total | currency}}</span>
     </div>
   </div>
-  <div class="button green">Cash</div>
-  <div class="button blue">Credit</div>
+  <!-- Payment Buttons -->
+  <div class="button green" (click)="cashClicked.emit()">Cash</div>
+  <div class="button blue" (click)="creditClicked.emit()">Credit</div>
 </div>

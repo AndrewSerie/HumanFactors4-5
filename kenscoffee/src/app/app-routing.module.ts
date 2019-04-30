@@ -10,6 +10,10 @@ const routes: Routes = [
 	{
 		path: 'home',
 		loadChildren: './home/home.module#HomeModule'
+	},
+	{
+		path: 'checkout',
+		loadChildren: './checkout/checkout.module#CheckoutModule'
 	}
 ];
 
