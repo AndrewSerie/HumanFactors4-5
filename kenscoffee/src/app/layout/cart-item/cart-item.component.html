@@ -20,6 +20,11 @@
       <!-- Total -->
       <span>{{item.quantity * item.unitPrice | currency}}</span>
 
+      <!-- Addons -->
+      <div id="addons">
+        <span *ngFor="let addon of item.addons">+ {{addon.name}}</span>
+      </div>
+
       <!-- Notes -->
       <ion-input class="notes" placeholder="Notes"></ion-input>
     </div>

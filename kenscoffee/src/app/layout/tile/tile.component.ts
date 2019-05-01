@@ -7,4 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class TileComponent {
 	@Input() active = false;
+	@Input() selectable = false;
+	selected = false;
+
+	onClick() {
+		this.selected = this.selectable ? !this.selected : false;
+	}
 }

@@ -1,0 +1,29 @@
+#item-tiles {
+	width: 100%;
+	height: 100%;
+	background-color: #e6e6e6;
+	box-shadow: inset 0 0 10px #cacaca;
+
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	grid-template-rows: 1fr 1fr;
+	grid-auto-flow: column;
+	grid-gap: 15px;
+	padding: 15px;
+	align-items: center;
+}
+
+#done {
+	grid-row: span 2/3;
+}
+
+#empty {
+	width: 50%;
+	height: 50%;
+	display: none;
+}
+
+#menu {
+	grid-column: 1 / 3;
+	margin: 3;
+}

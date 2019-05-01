@@ -1,4 +1,4 @@
-<div id="tile" [ngClass]="{'active': active}">
+<div id="tile" [ngClass]="{'active': active, 'selected': selected}" (click)="onClick()">
   <div id="text">
     <ng-content></ng-content>
   </div>
