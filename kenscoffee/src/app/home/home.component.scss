@@ -6,12 +6,32 @@
 }
 
 #cart {
+	overflow-y: auto;
+
 	#header {
 		display: grid;
 		grid-template-columns: 6fr 3fr 3fr 2fr;
 		padding: 2px 10px;
 		font-size: 14px;
 		border-bottom: 1px solid #eaeaea;
+		position: sticky;
+		top: 0;
+		background: #ffffff;
+		z-index: 3;
+
+		span {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		#name {
+			justify-content: left;
+		}
+	}
+
+	#items {
+		margin: unset;
 	}
 }
 #cart td{

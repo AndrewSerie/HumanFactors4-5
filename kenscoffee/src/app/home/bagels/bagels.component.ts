@@ -23,9 +23,10 @@ export class BagelsComponent implements OnInit {
 		this.cart.addItem({
 			name: `Bagel - ${item.name}`,
 			unitPrice: item.unitPrice,
+			quantity: 1,
+			description: item.description,
 			addons: [],
-			quantity: 1
+			notes: ''
 		});
-
 	}
 }

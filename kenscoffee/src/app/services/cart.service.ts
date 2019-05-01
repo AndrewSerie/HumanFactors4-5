@@ -12,29 +12,18 @@ export class CartService {
 	}
 
 	set cart(cart: Cart) {
+		this.updateCost();
 		this._cart.next(cart);
 	}
 
 	removeItem(item: CartItem) {
 		this.cart.items = this.cart.items.filter(i => i !== item);
+		this.updateCost();
 	}
 
 	addItem(item: CartItem) {
 		this.cart.items = [...this.cart.items, item];
-		console.log(item.name+ " " + item.unitPrice);
-		var price = this.calcPrice;
-		this.cart.numItems++;
-	}
-
-	get calcPrice(){
-		var price= 0.0;
-		for (let entry of this.cart.items)
-		{
-			price+= entry.unitPrice;
-		}
-		
-		console.log(price);
-		return price;
+		this.updateCost();
 	}
 
 	addAddon(addon: Addon){
@@ -45,28 +34,54 @@ export class CartService {
 
 	updateDiscount(discont: number) {
 		this.cart.discount = discont;
+		this.updateCost();
 	}
 
+	discard() {
+		this.cart.items.length = 0;
+		this.cart.discount = 0;
+		this.cart.subtotal = 0;
+		this.cart.tax = 0;
+		this.cart.total = 0;
+	}
 
+	updateCost() {
+		this.cart.subtotal = 0;
+		this.cart.items.forEach(i => {
+			this.cart.subtotal +=
+				i.unitPrice * i.quantity +
+				i.addons
+					.filter(j => j.price)
+					.reduce((sum, next) => sum + next.price, 0);
+		});
+
+		this.cart.tax = (this.cart.subtotal - this.cart.discount) * 0.065;
+		this.cart.total =
+			this.cart.subtotal + this.cart.tax - this.cart.discount;
+	}
 }
 
 export class Cart {
 	constructor() {
-		this.numItems = 0;
 		this.items = [];
+		this.subtotal = 0;
+		this.tax = 0;
+		this.total = 0;
+		this.discount = 0;
 	}
 
 	items: CartItem[];
-	numItems: number;
+	subtotal: number;
+	tax: number;
+	total: number;
 	discount: number;
-	// Tax is calculated at runtime to prevent staleness
-	// Subtotal and Total are calculated at runtime to prevent staleness
 }
 
 export class CartItem {
 	name: string;
 	addons: Addon[];
 	quantity: number;
-	unitPrice?: number;
-	notes?: string;
+	unitPrice: number;
+	notes: string;
+	description: string;
 }
