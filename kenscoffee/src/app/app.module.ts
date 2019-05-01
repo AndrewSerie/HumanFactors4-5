@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CartService } from './services/cart.service';
 import { MockDataService } from './services/mock-data.service';
 
+
 @NgModule({
 	declarations: [AppComponent],
 	entryComponents: [],

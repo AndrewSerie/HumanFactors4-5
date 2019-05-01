@@ -9,3 +9,4 @@ import { EventEmitter } from 'events';
 export class TileComponent {
 	@Input() active = false;
 }
+

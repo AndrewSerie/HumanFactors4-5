@@ -4,7 +4,7 @@
       <img alt="logo" height="35" src="assets/icon/favicon.png">
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="discardOrder()">
+      <ion-button  (click)="discardOrder()">
         Discard Order
       </ion-button>
     </ion-buttons>
@@ -15,14 +15,25 @@
   <div id="grid">
     <div id="cart">
       <div id="header">
-        <span>Description</span>
-        <span>Quantity</span>
-        <span>Unit Price</span>
-        <span>Total</span>
+      <tr>
+        <td>Description</td>
+        <td>Quantity</td>
+        <td>Unit Price</td>
+        <td>Total</td>
+      </tr>
       </div>
-
-      <div *ngFor="let item of cart?.items">{{item.name}}</div>
-
+    <tr>
+      <div *ngFor="let item of cart?.items">
+        <td>{{item.name}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.unitPrice}}</td>
+        <td></td>
+        <div *ngFor="let addon of item?.addons">
+            {{addon.name}}
+        </div>
+        
+      </div>
+    </tr>
     </div>
     <div id="order-cost">
       <app-layout-order-cost-tile></app-layout-order-cost-tile>

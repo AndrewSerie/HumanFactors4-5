@@ -1,0 +1,16 @@
+
+<div id = "item-tiles">
+  <div id = "done">
+    <div id = "empty">
+      <app-layout-tile></app-layout-tile> 
+    </div> 
+   <app-layout-tile routerLink="/home/bagels" routerLinkActive = "active">Done</app-layout-tile>    
+   <div id = "empty">
+      <app-layout-tile></app-layout-tile> 
+    </div>    
+  </div> 
+    <app-layout-tile *ngFor="let addon of addons" [active]="addon.inStock" (click)="selected(addon)"  >
+      {{addon.name}} <br>  +{{addon.price| currency}} 
+    </app-layout-tile>
+</div>
+</div>

@@ -1,3 +1,3 @@
 <div id="item-tiles">
-  <app-layout-tile *ngFor="let item of items" [active]="item.inStock" (click)="selected(item)">{{item.name}}</app-layout-tile>
+  <app-layout-tile routerLink="/home/addons" routerLinkActive = "active" *ngFor="let item of items" [active]="item.inStock" (click)="selected(item) ">{{item.name}} </app-layout-tile>
 </div>
