@@ -9,6 +9,33 @@
 #sidebar {
 	width: 100%;
 	border-right: 1px solid #eaeaea;
+	overflow-y: auto;
+
+	#item {
+		font-size: 14px;
+		width: 100%;
+		color: #8b8b8b;
+		padding-top: 5px;
+		padding-bottom: 5px;
+
+		#name {
+			float: left;
+			color: black;
+		}
+
+		#quantity {
+			color: #8b8b8b;
+		}
+
+		#total {
+			float: right;
+		}
+
+		#addons {
+			display: inline-block;
+			width: 100%;
+		}
+	}
 }
 
 #sidebar-footer {

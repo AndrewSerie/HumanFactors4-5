@@ -2,7 +2,7 @@
   <!-- Done Tile -->
   <div id="done">
     <div id="empty"></div>
-    <app-layout-tile routerLink="/home/bagels">Done</app-layout-tile>
+    <app-layout-tile (click)="done.emit()">Done</app-layout-tile>
     <div id="empty"></div>
   </div>
 
