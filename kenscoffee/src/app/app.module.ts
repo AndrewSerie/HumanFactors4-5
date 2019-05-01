@@ -8,7 +8,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CartService } from './services/cart.service';
 import { MockDataService } from './services/mock-data.service';
-
+import { HomeModule } from './home/home.module';
+import { CheckoutModule } from './checkout/checkout.module';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -16,7 +17,9 @@ import { MockDataService } from './services/mock-data.service';
 	imports: [
 		BrowserModule,
 		IonicModule.forRoot({ mode: 'ios' }),
-		AppRoutingModule
+		AppRoutingModule,
+		HomeModule,
+		CheckoutModule
 	],
 	providers: [
 		StatusBar,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MockDataService } from 'src/app/services/mock-data.service';
 import { CartService } from 'src/app/services/cart.service';
 import { Item } from 'src/app/models/item';
@@ -9,6 +9,7 @@ import { Item } from 'src/app/models/item';
 	styleUrls: ['./coffee.component.scss']
 })
 export class CoffeeComponent implements OnInit {
+	@Output() itemSelected = new EventEmitter();
 	items: Item[];
 
 	constructor(private service: MockDataService, private cart: CartService) {}
@@ -28,5 +29,6 @@ export class CoffeeComponent implements OnInit {
 			notes: '',
 			addons: []
 		});
+		this.itemSelected.emit();
 	}
 }

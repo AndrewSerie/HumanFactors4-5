@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
 	{
 		path: '',
-		redirectTo: 'home',
+		redirectTo: 'home/bagels',
 		pathMatch: 'full'
 	},
 	{
-		path: 'home',
-		loadChildren: './home/home.module#HomeModule'
+		path: 'home/:aux',
+		component: HomeComponent
 	},
 	{
-		path: 'checkout',
-		loadChildren: './checkout/checkout.module#CheckoutModule'
+		path: 'checkout/:aux',
+		component: CheckoutComponent
 	}
 ];
 

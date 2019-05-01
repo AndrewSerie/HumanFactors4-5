@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 })
 export class TextButtonDirective implements OnInit {
 	@Input() routerLink: string;
+	@Input() active: string;
 
 	constructor(private el: ElementRef, private router: Router) {
 		el.nativeElement.style.cursor = 'pointer';

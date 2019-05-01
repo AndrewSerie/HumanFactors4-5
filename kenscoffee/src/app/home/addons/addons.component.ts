@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MockDataService } from 'src/app/services/mock-data.service';
 import { Addon } from 'src/app/models/item';
 import { CartService } from 'src/app/services/cart.service';
@@ -9,6 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
 	styleUrls: ['./addons.component.scss']
 })
 export class AddonsComponent implements OnInit {
+	@Output() done = new EventEmitter();
 	addons: Addon[];
 
 	constructor(private service: MockDataService, private cart: CartService) {}

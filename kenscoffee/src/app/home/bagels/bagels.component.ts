@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MockDataService } from 'src/app/services/mock-data.service';
 import { Item } from 'src/app/models/item';
-import { CartService, CartItem } from 'src/app/services/cart.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
 	selector: 'app-bagels',
@@ -9,7 +9,9 @@ import { CartService, CartItem } from 'src/app/services/cart.service';
 	styleUrls: ['./bagels.component.scss']
 })
 export class BagelsComponent implements OnInit {
+	@Output() itemSelected = new EventEmitter();
 	items: Item[];
+	auxRoute = '';
 
 	constructor(private service: MockDataService, private cart: CartService) {}
 
@@ -28,5 +30,7 @@ export class BagelsComponent implements OnInit {
 			addons: [],
 			notes: ''
 		});
+		this.auxRoute = 'addons';
+		this.itemSelected.emit();
 	}
 }

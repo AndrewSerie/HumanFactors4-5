@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { CartService, Cart } from '../services/cart.service';
 
 @Component({
@@ -9,10 +9,16 @@ import { CartService, Cart } from '../services/cart.service';
 })
 export class CheckoutComponent implements OnInit {
 	cart: Cart;
+	auxRoute = 'cash';
 
-	constructor(private router: Router, private cartService: CartService) {}
+	constructor(
+		private router: Router,
+		private route: ActivatedRoute,
+		private cartService: CartService
+	) {}
 
 	ngOnInit() {
+		this.route.paramMap.subscribe(p => (this.auxRoute = p.get('aux')));
 		this.cart = this.cartService.cart;
 	}
 

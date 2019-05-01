@@ -15,7 +15,7 @@
   <div id="grid">
 
     <!-- Cart -->
-    <div id="cart">
+    <div id="cart" #autoscroll>
       <div id="header">
         <span id="name">Description</span>
         <span>Quantity</span>
@@ -35,13 +35,14 @@
 
     <!-- Item Tiles -->
     <div id="item-tiles">
-      <router-outlet></router-outlet>
+      <app-bagels *ngIf="auxRoute === 'bagels'" (itemSelected)="scrollCart()"></app-bagels>
+      <app-coffee *ngIf="auxRoute === 'coffee'" (itemSelected)="scrollCart()"></app-coffee>
     </div>
 
     <!-- SubMenu -->
     <div id="menu">
-      <span appLayoutTextButton routerLink="/home/bagels">Bagels</span>
-      <span appLayoutTextButton routerLink="/home/coffee">Coffee</span>
+      <span class="nav-button" (click)="navBagels()" [ngClass]="{'active':auxRoute === 'bagels'}">Bagels</span>
+      <span class="nav-button" (click)="navCoffee()" [ngClass]="{'active':auxRoute === 'coffee'}">Coffee</span>
     </div>
   </div>
 </ion-content>
