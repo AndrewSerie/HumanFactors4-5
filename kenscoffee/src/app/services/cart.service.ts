@@ -6,7 +6,7 @@ import { Addon } from '../models/item';
 export class CartService {
 	private readonly _cart = new BehaviorSubject<Cart>(new Cart());
 	readonly cart$ = this._cart.asObservable();
-	
+
 	get cart(): Cart {
 		return this._cart.getValue();
 	}
@@ -26,10 +26,18 @@ export class CartService {
 		this.updateCost();
 	}
 
-	addAddon(addon: Addon){
-		console.log(addon.name + " " + addon.price);
-		this.cart.items[this.cart.numItems-1].addons.push(addon);
-		this.cart.items[this.cart.numItems-1].unitPrice += addon.price;
+	addAddon(addon: Addon) {
+		const item = this.cart.items[this.cart.items.length - 1];
+		const currentAddon = item.addons.findIndex(a => a.name === addon.name);
+
+		if (currentAddon >= 0) {
+			item.addons = item.addons.filter(a => a.name !== addon.name);
+			item.unitPrice -= addon.price;
+		} else {
+			item.addons.push(addon);
+			item.unitPrice += addon.price;
+		}
+		this.updateCost();
 	}
 
 	updateDiscount(discont: number) {
@@ -48,11 +56,7 @@ export class CartService {
 	updateCost() {
 		this.cart.subtotal = 0;
 		this.cart.items.forEach(i => {
-			this.cart.subtotal +=
-				i.unitPrice * i.quantity +
-				i.addons
-					.filter(j => j.price)
-					.reduce((sum, next) => sum + next.price, 0);
+			this.cart.subtotal += i.unitPrice * i.quantity;
 		});
 
 		this.cart.tax = (this.cart.subtotal - this.cart.discount) * 0.065;
