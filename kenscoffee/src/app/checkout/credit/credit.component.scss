@@ -1,0 +1,77 @@
+.credit-container {
+	text-align: center;
+	padding: 10vh 15vw;
+}
+
+.title {
+	color: #8b8b8b;
+	font-size: 5vh;
+	margin-bottom: 20px;
+}
+
+#swipe {
+	color: #8b8b8b;
+
+	#credit-icon {
+		font-size: 30vh;
+	}
+}
+
+#manual {
+	color: #8b8b8b;
+
+	#manual-form {
+		text-align: left;
+	}
+
+	ion-input {
+		background-color: #ececec;
+		border-radius: 4px;
+		margin: auto;
+		--padding-start: 10px;
+		margin-bottom: 15px;
+	}
+}
+
+.nav-button {
+	margin-top: 30px;
+	cursor: pointer;
+	font-size: 17px;
+	outline: 0;
+	color: #3880ff;
+}
+
+#big-button {
+	font-size: 18px;
+	width: 100%;
+	height: 8vh;
+	color: #ffffff;
+	background-color: #036635;
+	border-radius: 3px;
+	outline: 0;
+	margin-bottom: 20px;
+}
+
+#big-button:active {
+	background-color: #024725;
+}
+
+#big-button:disabled {
+	background-color: #67a385;
+}
+
+.tip-button {
+	font-size: 18px;
+	width: 100%;
+	height: 8vh;
+	color: #000000;
+	background-color: #ffffff;
+	border: 2px solid #8b8b8b;
+	border-radius: 3px;
+	outline: 0;
+	margin-bottom: 20px;
+}
+
+.tip-button.active {
+	background-color: #d0d0d0;
+}

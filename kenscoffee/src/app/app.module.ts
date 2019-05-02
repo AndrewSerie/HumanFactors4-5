@@ -10,6 +10,7 @@ import { CartService } from './services/cart.service';
 import { MockDataService } from './services/mock-data.service';
 import { HomeModule } from './home/home.module';
 import { CheckoutModule } from './checkout/checkout.module';
+import { ToastService } from './services/toast.service';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { CheckoutModule } from './checkout/checkout.module';
 		SplashScreen,
 		CartService,
 		MockDataService,
+		ToastService,
 		{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
 	],
 	bootstrap: [AppComponent]

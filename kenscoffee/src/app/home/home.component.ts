@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CartService, Cart } from '../services/cart.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ToastService } from '../services/toast.service';
 
 @Component({
 	selector: 'app-home',
@@ -15,7 +16,8 @@ export class HomeComponent implements OnInit {
 	constructor(
 		private router: Router,
 		private route: ActivatedRoute,
-		private cartService: CartService
+		private cartService: CartService,
+		private toastService: ToastService
 	) {}
 
 	ngOnInit() {
@@ -43,12 +45,14 @@ export class HomeComponent implements OnInit {
 		this.cartService.cart = this.cart;
 		if (this.cart.items.length > 0)
 			this.router.navigate(['checkout', 'cash']);
+		else this.toastService.presentErrorBottom('The cart is empty');
 	}
 
 	navCredit() {
 		this.cartService.cart = this.cart;
 		if (this.cart.items.length > 0)
 			this.router.navigate(['checkout', 'credit']);
+		else this.toastService.presentErrorBottom('The cart is empty');
 	}
 
 	scrollCart() {

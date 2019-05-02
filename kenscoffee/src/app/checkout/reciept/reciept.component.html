@@ -1,0 +1,8 @@
+<p>Please select reciept type</p>
+<button class="reciept-button" [ngClass]="{'active': reciept === ''}" (click)="reciept = ''">No Reciept</button>
+<button class="reciept-button" [ngClass]="{'active': reciept === 'print'}" (click)="reciept = 'print'">Print Reciept</button>
+<button class="reciept-button email" [ngClass]="{'active': reciept === 'email'}" (click)="reciept = 'email'">
+  <div>Email Reciept</div>
+  <ion-input type="email" placeholder="Email" (click)="reciept = 'email'"></ion-input>
+</button>
+<button id="done-button" (click)="done()">Done</button>

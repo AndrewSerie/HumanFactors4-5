@@ -1,0 +1,43 @@
+.reciept-button {
+	font-size: 18px;
+	width: 100%;
+	height: 8vh;
+	color: #000000;
+	background-color: #ffffff;
+	border: 2px solid #8b8b8b;
+	border-radius: 3px;
+	outline: 0;
+	margin-bottom: 20px;
+}
+
+.reciept-button.email {
+	height: 10vh;
+
+	ion-input {
+		text-align: left;
+		background-color: #ececec;
+		width: 70%;
+		border-radius: 4px;
+		margin: auto;
+		--padding-start: 10px;
+	}
+}
+
+.reciept-button.active {
+	background-color: #d0d0d0;
+}
+
+#done-button {
+	font-size: 18px;
+	width: 100%;
+	height: 8vh;
+	color: #ffffff;
+	background-color: #036635;
+	border-radius: 3px;
+	outline: 0;
+	margin-bottom: 20px;
+}
+
+#done-button:active {
+	background-color: #024725;
+}
