@@ -1,3 +1,24 @@
-#discount-type {
-	margin-right: 3px;
+#discount-container {
+	margin: 20px;
+}
+
+.title {
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+
+ion-label {
+	font-size: 18px;
+}
+
+ion-input {
+	background-color: #ececec;
+	border-radius: 4px;
+	margin: auto;
+	--padding-start: 10px;
+	margin-bottom: 15px;
+}
+
+.pad {
+	margin-bottom: 15px;
 }

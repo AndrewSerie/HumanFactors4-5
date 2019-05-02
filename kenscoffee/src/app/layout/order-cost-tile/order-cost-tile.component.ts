@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CartService, Cart } from 'src/app/services/cart.service';
 import { PopoverController } from '@ionic/angular';
 import { DiscountPopoverComponent } from '../discount-popover/discount-popover.component';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
 	selector: 'app-layout-order-cost-tile',
@@ -15,7 +16,8 @@ export class OrderCostTileComponent implements OnInit {
 
 	constructor(
 		private cartService: CartService,
-		private popoverController: PopoverController
+		private popoverController: PopoverController,
+		private toastService: ToastService
 	) {}
 
 	ngOnInit() {
@@ -26,10 +28,14 @@ export class OrderCostTileComponent implements OnInit {
 		this.cartService.updateDiscount(discount);
 	}
 
-	async presentDiscountPopover(event: any) {
+	async presentDiscountPopover() {
+		if (this.cart.items.length <= 0) {
+			this.toastService.presentErrorBottom('The cart is empty');
+			return;
+		}
 		const popover = await this.popoverController.create({
 			component: DiscountPopoverComponent,
-			event: event,
+			event: null,
 			translucent: false,
 			backdropDismiss: false,
 			componentProps: {

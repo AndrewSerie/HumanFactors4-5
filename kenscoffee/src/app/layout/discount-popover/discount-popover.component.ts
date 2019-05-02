@@ -7,11 +7,10 @@ import { PopoverController, NavParams } from '@ionic/angular';
 	styleUrls: ['./discount-popover.component.scss']
 })
 export class DiscountPopoverComponent implements OnInit {
-	discountInput: number;
-	discount: number;
-	subtotal: number;
-	type = DiscountType.Currency;
-	typeString = '$';
+	discount = 0;
+	discountDisplay = 0;
+	dollar = 0;
+	subtotal = 0;
 
 	constructor(
 		private popoverController: PopoverController,
@@ -19,50 +18,42 @@ export class DiscountPopoverComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		this.discount = this.navParams.get('discount');
 		this.subtotal = this.navParams.get('subtotal');
-		this.discountInput = this.discount;
-		this.calculateDiscount();
-	}
-
-	calculateDiscount() {
-		if (this.discountInput == null || this.discountInput === undefined) {
-			this.discount = 0;
-			return;
-		}
-
-		if (this.type === DiscountType.Currency)
-			this.discount = this.discountInput;
-
-		if (this.type === DiscountType.Percent)
-			this.discount = this.subtotal * (this.discountInput * 0.01);
-
-		if (this.discount > this.subtotal) this.discount = this.subtotal;
-	}
-
-	setTypeCurrency() {
-		this.type = DiscountType.Currency;
-		this.typeString = '$';
-		this.discountInput = Math.round(this.discount * 100) / 100;
-		this.calculateDiscount();
-	}
-
-	setTypePercent() {
-		this.type = DiscountType.Percent;
-		this.typeString = '%';
-		this.discountInput =
-			this.subtotal === 0
-				? 0
-				: Math.round((this.discount / this.subtotal) * 10000) / 100;
-		this.calculateDiscount();
+		this.dollar = this.navParams.get('discount');
+		this.dollarChange();
 	}
 
 	dismiss() {
-		this.popoverController.dismiss(this.discount);
+		this.popoverController.dismiss(this.dollar);
 	}
-}
 
-enum DiscountType {
-	Percent,
-	Currency
+	percentChange() {
+		if (this.discountDisplay < 0) {
+			this.discountDisplay = 0;
+			this.discount = 0;
+			this.dollar = 0;
+		} else if (this.discountDisplay > 100) {
+			this.discountDisplay = 100;
+			this.discount = 100;
+			this.dollar = this.subtotal;
+		} else {
+			this.discount = this.discountDisplay;
+			this.dollar = Math.round(this.subtotal * this.discount) / 100;
+		}
+	}
+
+	dollarChange() {
+		if (this.dollar < 0) {
+			this.dollar = 0;
+			this.discountDisplay = 0;
+			this.discount = 0;
+		} else if (this.dollar > this.subtotal) {
+			this.dollar = this.subtotal;
+			this.discountDisplay = 100;
+			this.discount = 100;
+		} else {
+			this.discount = (this.dollar / this.subtotal) * 100;
+			this.discountDisplay = Math.round(this.discount);
+		}
+	}
 }

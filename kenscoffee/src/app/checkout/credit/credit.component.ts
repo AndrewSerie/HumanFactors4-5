@@ -57,6 +57,11 @@ export class CreditComponent implements OnInit {
 		return tip !== 0 && tip !== 0.15 && tip !== 0.2 && tip !== 0.25;
 	}
 
+	calcTotal() {
+		if (this.cart.total === 0) return this.cart.total + 1 * this.tipPercent;
+		else return this.cart.total + this.cart.total * this.tipPercent;
+	}
+
 	async customTip() {
 		const popover = await this.popoverController.create({
 			component: TipPopoverComponent,

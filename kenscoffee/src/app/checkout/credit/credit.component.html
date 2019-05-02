@@ -42,7 +42,7 @@
       <div>{{cart.total * 0.25 | currency}}</div>
     </button>
     <button class="tip-button" [ngClass]="{'active': isCustomTip()}" (click)="customTip()">Custom Tip</button>
-    <button id="big-button" (click)="auxRoute = 'sign'">Charge {{cart.total + (cart.total*tipPercent) | currency}}</button>
+    <button id="big-button" (click)="auxRoute = 'sign'">Charge {{calcTotal() | currency}}</button>
   </div>
 
   <!-- Sign -->

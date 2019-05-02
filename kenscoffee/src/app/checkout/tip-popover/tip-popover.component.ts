@@ -45,7 +45,9 @@ export class TipPopoverComponent implements OnInit {
 			this.tipDisplay = 0;
 			this.tip = 0;
 		} else {
-			this.tip = (this.dollar / this.cartTotal) * 100;
+			if (this.cartTotal === 0) this.tip = (this.dollar / 1) * 100;
+			else this.tip = (this.dollar / this.cartTotal) * 100;
+
 			this.tipDisplay = Math.round(this.tip);
 		}
 	}
