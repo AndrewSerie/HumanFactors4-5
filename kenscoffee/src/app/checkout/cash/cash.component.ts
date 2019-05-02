@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import {
+	faMoneyBillWave,
+	faBackspace
+} from '@fortawesome/free-solid-svg-icons';
+import { Cart, CartService } from 'src/app/services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-cash',
@@ -6,7 +12,53 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./cash.component.scss']
 })
 export class CashComponent implements OnInit {
-	constructor() {}
+	cart: Cart;
+	cashTendered = 0;
+	cashed = false;
+	reciept = '';
+	faMoneyBillWave = faMoneyBillWave;
+	faBackspace = faBackspace;
 
-	ngOnInit() {}
+	constructor(private cartService: CartService, private router: Router) {}
+
+	ngOnInit() {
+		this.cart = this.cartService.cart;
+	}
+
+	ionViewDidLeave() {
+		this.clear();
+	}
+
+	cash() {
+		if (this.cashTendered < this.cart.total) return;
+		this.cashed = true;
+	}
+
+	clear() {
+		this.cashed = false;
+		this.cashTendered = 0;
+		this.reciept = '';
+	}
+
+	done() {
+		this.cartService.discard();
+		this.router.navigate(['home', 'bagels']);
+	}
+
+	addTendered(amount: number) {
+		this.cashTendered = this.cashTendered * 10 + amount * 0.01;
+	}
+
+	addTenderedShiftLeft() {
+		this.cashTendered = this.cashTendered * 100;
+	}
+
+	backspaceTendered() {
+		this.cashTendered = this.cashTendered * 0.1;
+		this.cashTendered = Math.floor(this.cashTendered * 100) / 100;
+	}
+
+	setTendered(amount: number) {
+		this.cashTendered = amount;
+	}
 }
