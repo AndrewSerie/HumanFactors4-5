@@ -1,3 +1,40 @@
-<p>
-  cash works!
-</p>
+<div class="cash-container" *ngIf="!cashed">
+  <!-- Icon -->
+  <fa-icon id="money-icon" [icon]="faMoneyBillWave"></fa-icon>
+
+  <!-- Cash Tendered -->
+  <div id="cash-tendered">{{cashTendered | currency }}</div>
+
+  <!-- Cash Input -->
+  <div id="cash-input">
+    <div id="cash-number" *ngFor="let num of [1,2,3,4,5,6,7,8,9,0]" (click)="addTendered(num)">{{num}}</div>
+    <div id="cash-number" (click)="addTenderedShiftLeft()">00</div>
+    <div id="cash-number" (click)="backspaceTendered()">
+      <fa-icon [icon]="faBackspace"></fa-icon>
+    </div>
+  </div>
+
+  <button id="cash-button" (click)="cash()">Cash</button>
+  <div id="cash-presets">
+    <button (click)="setTendered(5)">$5.00</button>
+    <button (click)="setTendered(10)">$10.00</button>
+    <button (click)="setTendered(20)">$20.00</button>
+  </div>
+</div>
+
+<div class="cash-container" *ngIf="cashed">
+  <!-- Details -->
+  <div id="tendered-title">Cash Tendered</div>
+  <div id="tendered-total">{{cashTendered | currency}}</div>
+  <div id="tendered-title">Change Due</div>
+  <div id="tendered-total">{{cashTendered - cart.total | currency}}</div>
+
+  <!-- Reciept -->
+  <p>Please select reciept type</p>
+  <button class="reciept-button" [ngClass]="{'active': reciept === 'print'}" (click)="reciept = 'print'">Print Reciept</button>
+  <button class="reciept-button email" [ngClass]="{'active': reciept === 'email'}" (click)="reciept = 'email'">
+    <div>Email Reciept</div>
+    <ion-input type="email" placeholder="Email"></ion-input>
+  </button>
+  <button id="cash-button" (click)="done()">Done</button>
+</div>

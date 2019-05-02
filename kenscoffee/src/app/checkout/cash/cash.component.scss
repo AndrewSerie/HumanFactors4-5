@@ -1,0 +1,114 @@
+.cash-container {
+	text-align: center;
+	padding: 0 15vw;
+}
+
+#money-icon {
+	font-size: 15vh;
+	color: #036635;
+}
+
+#cash-tendered {
+	font-size: 8vh;
+	color: #8b8b8b;
+	margin-bottom: 10px;
+}
+
+#cash-input {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+	height: 45vh;
+	border-bottom: 1px solid #8b8b8b;
+	border-left: 1px solid #8b8b8b;
+	margin-bottom: 20px;
+
+	#cash-number {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #8b8b8b;
+		font-size: 30px;
+		border-top: 1px solid #8b8b8b;
+		border-right: 1px solid #8b8b8b;
+	}
+
+	#cash-number:active {
+		background-color: #d0d0d0;
+	}
+}
+
+#cash-button {
+	font-size: 18px;
+	width: 100%;
+	height: 8vh;
+	color: #ffffff;
+	background-color: #036635;
+	border-radius: 3px;
+	outline: 0;
+	margin-bottom: 20px;
+}
+
+#cash-button:active {
+	background-color: #024725;
+}
+
+#cash-presets {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 10px;
+	font-size: 18px;
+
+	button {
+		height: 5vh;
+		color: #ffffff;
+		background-color: #036635;
+		border-radius: 3px;
+		outline: 0;
+	}
+
+	button:active {
+		background-color: #024725;
+	}
+}
+
+.reciept-button {
+	font-size: 18px;
+	width: 100%;
+	height: 8vh;
+	color: #000000;
+	background-color: #ffffff;
+	border: 2px solid #8b8b8b;
+	border-radius: 3px;
+	outline: 0;
+	margin-bottom: 20px;
+}
+
+.reciept-button.email {
+	height: 10vh;
+
+	ion-input {
+		text-align: left;
+		background-color: #ececec;
+		width: 70%;
+		border-radius: 4px;
+		margin: auto;
+		--padding-start: 10px;
+	}
+}
+
+.reciept-button.active {
+	background-color: #d0d0d0;
+}
+
+#tendered-title {
+	font-size: 3vh;
+	color: #8b8b8b;
+	margin-top: 20px;
+}
+
+#tendered-total {
+	font-size: 5vh;
+	color: #8b8b8b;
+	margin-top: 10px;
+}
