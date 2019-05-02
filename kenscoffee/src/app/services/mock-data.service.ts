@@ -13,7 +13,7 @@ export class MockDataService {
 		return of(this.generateCoffeeItems());
 	}
 
-	getAddonItems(){
+	getAddonItems() {
 		return of(this.generateAddonItems());
 	}
 
@@ -21,33 +21,32 @@ export class MockDataService {
 		return [
 			{
 				name: 'Peanut Butter',
-				price: 0.50,
+				price: 0.5,
 				inStock: true
-				
 			},
 			{
 				name: 'Strawberry Jam',
-				price: 0.50,
+				price: 0.5,
 				inStock: true
 			},
 			{
 				name: 'Plain Cream Cheese',
-				price: 1.00,
+				price: 1.0,
 				inStock: true
 			},
 			{
 				name: 'Veggie Cream Cheese',
-				price: 1.00,
+				price: 1.0,
 				inStock: true
 			},
 			{
 				name: 'Raspberry Cream Cheese',
-				price: 1.00,
+				price: 1.0,
 				inStock: true
 			},
 			{
 				name: 'Cinnamon Sugar Cream Cheese',
-				price: 1.00,
+				price: 1.0,
 				inStock: true
 			},
 			{
@@ -103,24 +102,24 @@ export class MockDataService {
 			{
 				name: 'Blueberry',
 				inStock: false,
-                unitPrice: 3.00,
-                description: 'A plain but simple bagel.',
-                addons: []
+				unitPrice: 3.0,
+				description: 'A plain but simple bagel.',
+				addons: []
 			},
 			{
 				name: 'Chocolate Chip',
 				inStock: true,
-                unitPrice: 3.00,
-                description: 'A plain but simple bagel.',
-                addons: []
+				unitPrice: 3.0,
+				description: 'A plain but simple bagel.',
+				addons: []
 			},
 			{
 				name: 'Cinnamon Raisin',
 				inStock: true,
-                unitPrice: 3.00,
-                description: 'A plain but simple bagel.',
-                addons: []		
-			},
+				unitPrice: 3.0,
+				description: 'A plain but simple bagel.',
+				addons: []
+			}
 		];
 	}
 

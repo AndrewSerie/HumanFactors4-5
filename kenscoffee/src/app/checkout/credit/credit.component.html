@@ -1,3 +1,60 @@
-<p>
-  credit works!
-</p>
+<div class="credit-container">
+
+  <!-- Swipe -->
+  <div id="swipe" *ngIf="auxRoute === 'swipe'">
+    <fa-icon id="credit-icon" [icon]="faCreditCard" (click)="auxRoute = 'tip'"></fa-icon>
+    <div class="title" (click)="auxRoute = 'tip'">Swipe Card</div>
+    <div class="nav-button" (click)="auxRoute = 'manual'">Manual Card Entry</div>
+  </div>
+
+  <!-- Manual Card Entry -->
+  <div id="manual" *ngIf="auxRoute === 'manual'">
+    <div class="title">Manual Card Entry</div>
+
+    <form [formGroup]="manualForm" id="manual-form">
+      <ion-label>Card Number</ion-label>
+      <ion-input formControlName="card"></ion-input>
+      <ion-label>CVC</ion-label>
+      <ion-input formControlName="cvc" type="number" placeholder="XXX"></ion-input>
+      <ion-label>Expiration</ion-label>
+      <ion-input formControlName="exp" placeholder="MM/YY"></ion-input>
+    </form>
+
+    <button id="big-button" (click)="auxRoute = 'tip'" [disabled]="!manualForm.valid">Enter</button>
+    <div class="nav-button" (click)="auxRoute = 'swipe'">Swipe Card</div>
+  </div>
+
+  <!-- Tip -->
+  <div id="tip" *ngIf="auxRoute === 'tip'">
+    <button class="tip-button" [ngClass]="{'active': tipPercent === 0}" (click)="tipPercent = 0">
+      None
+    </button>
+    <button class="tip-button" [ngClass]="{'active': tipPercent === .15}" (click)="tipPercent = .15">
+      <div>15%</div>
+      <div>{{cart.total * 0.15 | currency}}</div>
+    </button>
+    <button class="tip-button" [ngClass]="{'active': tipPercent === .20}" (click)="tipPercent = .20">
+      <div>20%</div>
+      <div>{{cart.total * 0.2 | currency}}</div>
+    </button>
+    <button class="tip-button" [ngClass]="{'active': tipPercent === .25}" (click)="tipPercent = .25">
+      <div>25%</div>
+      <div>{{cart.total * 0.25 | currency}}</div>
+    </button>
+    <button class="tip-button" [ngClass]="{'active': isCustomTip()}" (click)="customTip()">Custom Tip</button>
+    <button id="big-button" (click)="auxRoute = 'sign'">Charge {{calcTotal() | currency}}</button>
+  </div>
+
+  <!-- Sign -->
+  <div id="sign" *ngIf="auxRoute === 'sign'">
+    <div class="title">Please Sign</div>
+    <signature-pad [options]="signatureOptions"></signature-pad>
+    <p>I agree to pay the amount of {{cart.total + (cart.total*tipPercent) | currency}} to my card.</p>
+    <button id="big-button" (click)="auxRoute = 'reciept'">Continue</button>
+  </div>
+
+  <!-- Reciept -->
+  <div id="reciept" *ngIf="auxRoute === 'reciept'">
+    <app-reciept></app-reciept>
+  </div>
+</div>

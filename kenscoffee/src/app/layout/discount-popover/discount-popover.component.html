@@ -1,36 +1,17 @@
-<div id="popover">
-  <ion-list>
-    <ion-list-header>Discount</ion-list-header>
-    <ion-item lines="none">
-      <ion-text slot="start">
-        Subtotal
-      </ion-text>
-      <ion-text slot="end">
-        {{subtotal | currency}}
-      </ion-text>
-    </ion-item>
-    <ion-item lines="none">
-      <span id="discount-type">- {{typeString}}</span>
-      <ion-input type="number" [(ngModel)]="discountInput" placeholder="Discount" (keyup)="calculateDiscount()" min="0"
-        [max]="subtotal" step=".01"></ion-input>
-      <ion-button (click)="setTypeCurrency()">$</ion-button>
-      <ion-button (click)="setTypePercent()">%</ion-button>
-    </ion-item>
-    <ion-item lines="none">
-      <ion-text slot="start">
-        Total
-      </ion-text>
-      <ion-text slot="end">
-        {{subtotal - discount | currency}}
-      </ion-text>
-    </ion-item>
+<div id="discount-container">
+  <div class="title">Discount</div>
 
+  <ion-label>Percentage</ion-label>
+  <ion-input type="number" [(ngModel)]="discountDisplay" (keyup)="percentChange()"></ion-input>
 
+  <ion-label>Dollar Amount</ion-label>
+  <ion-input type="number" [(ngModel)]="dollar" (keyup)="dollarChange()"></ion-input>
 
+  <ion-label>Subtotal</ion-label>
+  <div class="pad">{{subtotal | currency}}</div>
 
-    <!-- <ion-item lines="none">
-      <ion-range [value]="discount" min="0" max="100" step="1" pin="true"></ion-range>
-    </ion-item> -->
-  </ion-list>
+  <ion-label>Total</ion-label>
+  <div class="pad">{{subtotal - (subtotal * (discount * 0.01)) | currency}}</div>
+
   <ion-button expand="block" (click)="dismiss()">Apply</ion-button>
 </div>

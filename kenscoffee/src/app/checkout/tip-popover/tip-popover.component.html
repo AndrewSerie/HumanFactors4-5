@@ -1,0 +1,14 @@
+<div id="tip-container">
+  <div class="title">Custom Tip</div>
+
+  <ion-label>Percentage</ion-label>
+  <ion-input type="number" [(ngModel)]="tipDisplay" (keyup)="percentChange()"></ion-input>
+
+  <ion-label>Dollar Amount</ion-label>
+  <ion-input type="number" [(ngModel)]="dollar" (keyup)="dollarChange()"></ion-input>
+
+  <ion-label>Total</ion-label>
+  <div>{{cartTotal + (cartTotal * (tip * 0.01)) | currency}}</div>
+
+  <ion-button expand="block" (click)="dismiss()">Apply</ion-button>
+</div>

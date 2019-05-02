@@ -15,7 +15,6 @@ export class CashComponent implements OnInit {
 	cart: Cart;
 	cashTendered = 0;
 	cashed = false;
-	reciept = '';
 	faMoneyBillWave = faMoneyBillWave;
 	faBackspace = faBackspace;
 
@@ -23,6 +22,10 @@ export class CashComponent implements OnInit {
 
 	ngOnInit() {
 		this.cart = this.cartService.cart;
+	}
+
+	ionViewWillEnter() {
+		this.clear();
 	}
 
 	ionViewDidLeave() {
@@ -37,12 +40,6 @@ export class CashComponent implements OnInit {
 	clear() {
 		this.cashed = false;
 		this.cashTendered = 0;
-		this.reciept = '';
-	}
-
-	done() {
-		this.cartService.discard();
-		this.router.navigate(['home', 'bagels']);
 	}
 
 	addTendered(amount: number) {

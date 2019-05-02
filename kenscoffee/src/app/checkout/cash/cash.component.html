@@ -14,7 +14,7 @@
     </div>
   </div>
 
-  <button id="cash-button" (click)="cash()">Cash</button>
+  <button id="cash-button" (click)="cash()" [disabled]="cashTendered - cart.total < 0">Cash</button>
   <div id="cash-presets">
     <button (click)="setTendered(5)">$5.00</button>
     <button (click)="setTendered(10)">$10.00</button>
@@ -30,11 +30,5 @@
   <div id="tendered-total">{{cashTendered - cart.total | currency}}</div>
 
   <!-- Reciept -->
-  <p>Please select reciept type</p>
-  <button class="reciept-button" [ngClass]="{'active': reciept === 'print'}" (click)="reciept = 'print'">Print Reciept</button>
-  <button class="reciept-button email" [ngClass]="{'active': reciept === 'email'}" (click)="reciept = 'email'">
-    <div>Email Reciept</div>
-    <ion-input type="email" placeholder="Email"></ion-input>
-  </button>
-  <button id="cash-button" (click)="done()">Done</button>
+  <app-reciept></app-reciept>
 </div>
