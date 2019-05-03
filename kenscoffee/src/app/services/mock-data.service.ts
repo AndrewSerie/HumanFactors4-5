@@ -67,56 +67,56 @@ export class MockDataService {
 			{
 				name: 'Plain',
 				inStock: true,
-				unitPrice: 1.15,
+				unitPrice: 2.25,
 				description: 'A plain but simple bagel.',
 				addons: []
 			},
 			{
 				name: 'Everything',
 				inStock: true,
-				unitPrice: 1.25,
+				unitPrice: 2.50,
 				description: 'A plain but simple bagel.',
 				addons: []
 			},
 			{
 				name: 'Onion',
 				inStock: true,
-				unitPrice: 1.25,
+				unitPrice: 2.50,
 				description: 'A plain but simple bagel.',
 				addons: []
 			},
 			{
 				name: 'Asiago Cheese',
 				inStock: true,
-				unitPrice: 1.25,
+				unitPrice: 2.50,
 				description: 'A plain but simple bagel.',
 				addons: []
 			},
 			{
 				name: 'Cinnamon Sugar',
 				inStock: true,
-				unitPrice: 1.25,
+				unitPrice: 2.50,
 				description: 'A plain but simple bagel.',
 				addons: []
 			},
 			{
 				name: 'Blueberry',
 				inStock: false,
-				unitPrice: 3.0,
+				unitPrice: 2.50,
 				description: 'A plain but simple bagel.',
 				addons: []
 			},
 			{
 				name: 'Chocolate Chip',
 				inStock: true,
-				unitPrice: 3.0,
+				unitPrice: 2.50,
 				description: 'A plain but simple bagel.',
 				addons: []
 			},
 			{
 				name: 'Cinnamon Raisin',
 				inStock: true,
-				unitPrice: 3.0,
+				unitPrice: 2.50,
 				description: 'A plain but simple bagel.',
 				addons: []
 			}
@@ -127,7 +127,8 @@ export class MockDataService {
 		return [
 			{
 				name: 'Black',
-				inStock: true
+				inStock: true,
+				unitPrice: 2.00
 			}
 		];
 	}
