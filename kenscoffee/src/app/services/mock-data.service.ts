@@ -74,50 +74,51 @@ export class MockDataService {
 			{
 				name: 'Everything',
 				inStock: true,
-				unitPrice: 2.50,
-				description: 'A plain but simple bagel.',
+				unitPrice: 2.5,
+				description:
+					'Spices containing poppy seeds, sesame seeds, garlic and onion.',
 				addons: []
 			},
 			{
 				name: 'Onion',
 				inStock: true,
-				unitPrice: 2.50,
-				description: 'A plain but simple bagel.',
+				unitPrice: 2.5,
+				description: 'A simple onion bagel.',
 				addons: []
 			},
 			{
 				name: 'Asiago Cheese',
 				inStock: true,
-				unitPrice: 2.50,
-				description: 'A plain but simple bagel.',
+				unitPrice: 2.5,
+				description: 'Bagel topped with asiago cheese.',
 				addons: []
 			},
 			{
 				name: 'Cinnamon Sugar',
 				inStock: true,
-				unitPrice: 2.50,
-				description: 'A plain but simple bagel.',
+				unitPrice: 2.5,
+				description: 'Bagel topped with cinnamon sugar.',
 				addons: []
 			},
 			{
 				name: 'Blueberry',
 				inStock: false,
-				unitPrice: 2.50,
-				description: 'A plain but simple bagel.',
+				unitPrice: 2.5,
+				description: 'Blueberries baked right into the bagel.',
 				addons: []
 			},
 			{
 				name: 'Chocolate Chip',
 				inStock: true,
-				unitPrice: 2.50,
-				description: 'A plain but simple bagel.',
+				unitPrice: 2.5,
+				description: 'Milk chocolate chips baked right into the bagel.',
 				addons: []
 			},
 			{
 				name: 'Cinnamon Raisin',
 				inStock: true,
-				unitPrice: 2.50,
-				description: 'A plain but simple bagel.',
+				unitPrice: 2.5,
+				description: 'Cinnamon and raisins baked right into the bagel.',
 				addons: []
 			}
 		];
@@ -128,7 +129,9 @@ export class MockDataService {
 			{
 				name: 'Black',
 				inStock: true,
-				unitPrice: 2.00
+				unitPrice: 2.0,
+				description: 'Plain black coffee.',
+				addons: []
 			}
 		];
 	}
